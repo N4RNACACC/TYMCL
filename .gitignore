@@ -366,3 +366,5 @@ FodyWeavers.xsd
 .idea/
 
 Assets/theme.png
+
+logs/
