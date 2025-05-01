@@ -28,23 +28,23 @@
                  
                         <StackPanel Orientation="Vertical">
                           <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="ReadyIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="13" Margin="0 0 5 0"/>
-                            <TextBlock Text="准备" FontSize="13"/>
+                            <TextBlock Name="ReadyIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="15" Margin="0 0 5 0"/>
+                            <TextBlock Text="准备" FontSize="15"/>
                           </StackPanel>
                       
                           <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="CheckEnvIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="13" Margin="0 0 5 0"/>
-                            <TextBlock Text="检查环境" FontSize="13"/>
+                            <TextBlock Name="CheckEnvIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="15" Margin="0 0 5 0"/>
+                            <TextBlock Text="检查环境" FontSize="15"/>
                           </StackPanel>
                       
                           <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="CheckUpdateIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="13" Margin="0 0 5 0"/>
-                            <TextBlock Text="检查更新"  FontSize="13"/>
+                            <TextBlock Name="CheckUpdateIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="15" Margin="0 0 5 0"/>
+                            <TextBlock Text="检查更新"  FontSize="15"/>
                           </StackPanel>
                       
                           <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="InitIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="13" Margin="0 0 5 0"/>
-                            <TextBlock Text="完成初始化" FontSize="13"/>
+                            <TextBlock Name="InitIcon" Text="&#xf141;" FontFamily="{DynamicResource IconFonts_Solid}" FontSize="15" Margin="0 0 5 0"/>
+                            <TextBlock Text="完成初始化" FontSize="15"/>
                           </StackPanel>
                       
                      </StackPanel>

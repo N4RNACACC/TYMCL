@@ -34,7 +34,7 @@ public partial class StartupWindow : Window
         Logger.Log.Info("开始初始化流程");
 
         await Task.Delay(2000);
-        ReadyIcon.Text = "&#xf021;";
+        ReadyIcon.Text = "\uf00c;";
 
         // 环境检查
         await Environment_Check();
@@ -56,13 +56,14 @@ public partial class StartupWindow : Window
         // 继续初始化流程
         if (_environmentIsSafe == true || _userChoseToContinue)
         {
+            CheckEnvIcon.Text = "\uf00c;";
             Logger.Log.Info("环境检查通过");
             // 更新检查
             await Update_Check();
 
             _initializationComplete = true;
             
-            InitIcon.Text = "&#xf00c;";
+            InitIcon.Text = "\uf00c";
 
             await Task.Delay(2000);
         }
@@ -118,7 +119,7 @@ public partial class StartupWindow : Window
         Logger.Log.Info("检查可用更新");
         await Task.Delay(5000); //
         Logger.Log.Info("更新检查-完成");
-        CheckUpdateIcon.Text = "&#xf00c;";
+        CheckUpdateIcon.Text = "\uf00c";
     }
 
     private async Task Environment_Check() // 环境检查
@@ -128,8 +129,8 @@ public partial class StartupWindow : Window
         var appDir = Path.GetFullPath(AppContext.BaseDirectory);
         Logger.Log.Info("APP目录:" + appDir);
         //系统检查
-        var OS = Environment.OSVersion.VersionString;
-        Logger.Log.Info("OS:" + OS);
+        var osVersion = Environment.OSVersion.VersionString;
+        Logger.Log.Info("OS:" + osVersion);
 
         // 发布类型检查
         Logger.Log.Info("----------发布类型检查--------");
@@ -169,7 +170,7 @@ public partial class StartupWindow : Window
                 var message = $"应用程序正在临时目录中运行:\n{appDir}\n\n";
                 Logger.Log.Error(message);
                 _environmentIsSafe = false;
-                CheckEnvIcon.Text = "&#x21;";
+                CheckEnvIcon.Text = "\uf021";
                 return;
             }
         }
@@ -198,7 +199,7 @@ public partial class StartupWindow : Window
                     var message = $"无法创建必要目录: {dir}\n错误: {ex.Message}";
                     Logger.Log.Error(message);
                     _environmentIsSafe = false;
-                    CheckEnvIcon.Text = "&#x21;";
+                    CheckEnvIcon.Text = "\uf021";
                     return;
                 }
             }
