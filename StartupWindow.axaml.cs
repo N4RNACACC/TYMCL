@@ -170,7 +170,7 @@ public partial class StartupWindow : Window
                 var message = $"应用程序正在临时目录中运行:\n{appDir}\n\n";
                 Logger.Log.Error(message);
                 _environmentIsSafe = false;
-                CheckEnvIcon.Text = "\uf021";
+                CheckEnvIcon.Text = "!";
                 return;
             }
         }
@@ -199,7 +199,7 @@ public partial class StartupWindow : Window
                     var message = $"无法创建必要目录: {dir}\n错误: {ex.Message}";
                     Logger.Log.Error(message);
                     _environmentIsSafe = false;
-                    CheckEnvIcon.Text = "\uf021";
+                    CheckEnvIcon.Text = "!";
                     return;
                 }
             }
