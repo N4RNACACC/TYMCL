@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Assets\Fonts\FontAwesome6Free-Regular-400.otf" />
     <None Remove="Assets\Fonts\FontAwesome6Free-Solid-400.otf" />
+    <None Remove="logs\**" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\Fonts\FontAwesome6Brands-Regular-400.otf">
@@ -24,6 +25,7 @@
     <AvaloniaResource Include="Assets\theme.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </AvaloniaResource>
+    <AvaloniaResource Remove="logs\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,5 +48,18 @@
     <Compile Update="StartupWindow.axaml.cs">
       <DependentUpon>StartupWindow.axaml</DependentUpon>
     </Compile>
+    <Compile Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaXaml Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="logs\**" />
   </ItemGroup>
 </Project>
