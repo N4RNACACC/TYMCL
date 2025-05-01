@@ -1,5 +1,5 @@
 ﻿// 程序日志记录器
-// 日志将保存在 ｛根目录｝\logs 文件夹下，文件名格式为 log_yyyyMMdd_HHmmss.log
+// 日志将保存在 ｛根目录｝\logs 文件夹下，文件名格式为 log_yyyyMMddHHmmss.log
 // 使用方式：在任意Class中插入 Logger.Log.｛level｝("｛日志信息｝");
 using log4net;
 using log4net.Appender;
@@ -20,7 +20,7 @@ public static class Logger
         if (!Directory.Exists(logDir)) Directory.CreateDirectory(logDir);
 
         // 生成带毫秒的时间戳文件名
-        var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
         var logPath = Path.Combine(logDir, $"log_{timestamp}.log");
 
         // 配置文件追加器
@@ -28,7 +28,7 @@ public static class Logger
         {
             Name = "FileAppender",
             File = logPath,
-            Layout = new PatternLayout("%date{[yyyyMMdd HHmmss]} [%thread] [%level] - %message%newline"),
+            Layout = new PatternLayout("%date{[yyyy_MM_dd HH:mm:ss]} [%thread] [%level] - %message%newline"),
             AppendToFile = true
         };
         appender.ActivateOptions();
