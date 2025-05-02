@@ -4,7 +4,11 @@ using Avalonia.Input;
 using System;
 using System.Configuration;
 using TYMCL.Pages;
+using TYMCL.UserControls;
 using TYMCL.Modules;
+using System.IO;
+using Avalonia.Media;
+using Avalonia.Media.Imaging;
 
 namespace TYMCL
 {
@@ -14,20 +18,17 @@ namespace TYMCL
         {
             Logger.Log.Info("初始化窗口-MainWindow");
             InitializeComponent();
+            BackgroundImage_Set();
 
-            // 初始化页面
-            Logger.Log.Info("初始化页面");
-            _homePage = new HomePage();
-            _settingsPage = new SettingsPage();
-            Logger.Log.Info("初始化页面完成");
+            var homePage = new HomePage();
+            var launchbar = new LaunchBarControl();
 
             // 默认显示主页
-            MainContent.Content = _homePage;
+            MainContent.Content = homePage;
+            LaunchBarContent.Content = launchbar;
         }
 
-        // 页面
-        private readonly UserControl _homePage;
-        private readonly UserControl _settingsPage;
+        private readonly string AppDir = AppContext.BaseDirectory;
 
         private void Window_MinimizeButton_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 最小化窗口
         {
@@ -49,17 +50,57 @@ namespace TYMCL
             }
         }
 
+        private void BackgroundImage_Set() // 设置背景图片
+        {
+            var backgroundImage = Path.Combine(AppDir, "resources", "background.jpg");
+
+            if (backgroundImage != null && File.Exists(backgroundImage))
+            {
+                Logger.Log.Info("设置背景图片");
+                try
+                {
+                    var bitmap = new Bitmap(backgroundImage);
+                    var imageBrush = new ImageBrush
+                    {
+                        Source = bitmap,
+                        Stretch = Stretch.UniformToFill,
+                    };
+                    ContentBorder.Background = imageBrush;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("设置背景图片失败", ex);
+                    ContentBorder.Background = new SolidColorBrush(Colors.White);
+                }
+            } else
+            {
+                Logger.Log.Error("背景图片不存在-使用默认背景");
+                ContentBorder.Background = new SolidColorBrush(Colors.White);
+            }
+            
+        }
+
         private void NavigateToHome(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 切换到主页
         {
             Logger.Log.Info("切换到主页");
-            MainContent.Content = _homePage;
+            MainContent.Content = new HomePage();
+        }
+
+        private void NavigateToGameManage(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 切换到游戏管理页
+        {   
+            var gameManagePage = new GameManagePage();
+            Logger.Log.Info("切换到游戏管理页");
+            MainContent.Content = gameManagePage;
         }
 
         private void NavigateToSettings(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 切换到设置页
         {
+            var settingsPage = new SettingsPage();
             Logger.Log.Info("切换到设置页");
-            MainContent.Content = _settingsPage;
+            MainContent.Content = settingsPage;
         }
+
+
 
     }
 }
