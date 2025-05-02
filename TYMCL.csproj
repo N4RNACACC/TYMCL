@@ -39,7 +39,7 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="log4net" Version="3.0.4" />
-    <PackageReference Include="MinecraftLaunch" Version="4.0.0" />
+    <PackageReference Include="MinecraftLaunch" Version="4.0.1-preview05" />
     <PackageReference Include="ShadUI" Version="0.0.4" />
     <PackageReference Include="YamlDotNet" Version="16.3.0" />
   </ItemGroup>
