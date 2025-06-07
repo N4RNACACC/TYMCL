@@ -9,7 +9,7 @@ public partial class SettingsPage : UserControl
 {
     public SettingsPage()
     {
-        Logger.Log.Info("初始化设置页");
+        Logger.Log.Info("Page", "初始化设置页");
         InitializeComponent();
     }
 }

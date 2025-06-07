@@ -16,7 +16,7 @@ namespace TYMCL
     {
         public MainWindow()
         {
-            Logger.Log.Info("初始化窗口-MainWindow");
+            Logger.Log.Info("启动器-Window", "初始化窗口-MainWindow");
             InitializeComponent();
             BackgroundImage_Set();
 
@@ -32,13 +32,13 @@ namespace TYMCL
 
         private void Window_MinimizeButton_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 最小化窗口
         {
-            Logger.Log.Info("最小化窗口");
+            Logger.Log.Info("启动器-Window", "最小化窗口");
             WindowState = WindowState.Minimized;
         }
 
         private void Window_CloseButton_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 关闭窗口
         {
-            Logger.Log.Info("关闭窗口");
+            Logger.Log.Info("启动器-Window", "关闭窗口");
             Close();
         }
 
@@ -56,7 +56,7 @@ namespace TYMCL
 
             if (backgroundImage != null && File.Exists(backgroundImage))
             {
-                Logger.Log.Info("设置背景图片");
+                Logger.Log.Info("启动器-Border", "设置背景图片");
                 try
                 {
                     var bitmap = new Bitmap(backgroundImage);
@@ -69,12 +69,12 @@ namespace TYMCL
                 }
                 catch (Exception ex)
                 {
-                    Logger.Log.Error("设置背景图片失败", ex);
+                    Logger.Log.Error("启动器-Border",$"设置背景图片失败 \n错误: {ex.Message}");
                     ContentBorder.Background = new SolidColorBrush(Colors.White);
                 }
             } else
             {
-                Logger.Log.Error("背景图片不存在-使用默认背景");
+                Logger.Log.Warn("启动器-Border", "背景图片不存在-使用默认背景");
                 ContentBorder.Background = new SolidColorBrush(Colors.White);
             }
             
@@ -82,21 +82,21 @@ namespace TYMCL
 
         private void NavigateToHome(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 切换到主页
         {
-            Logger.Log.Info("切换到主页");
+            Logger.Log.Info("Content", "切换到主页");
             MainContent.Content = new HomePage();
         }
 
         private void NavigateToGameManage(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 切换到游戏管理页
         {   
             var gameManagePage = new GameManagePage();
-            Logger.Log.Info("切换到游戏管理页");
+            Logger.Log.Info("Content", "切换到游戏管理页");
             MainContent.Content = gameManagePage;
         }
 
         private void NavigateToSettings(object sender, Avalonia.Interactivity.RoutedEventArgs e) // 切换到设置页
         {
             var settingsPage = new SettingsPage();
-            Logger.Log.Info("切换到设置页");
+            Logger.Log.Info("Content", "切换到设置页");
             MainContent.Content = settingsPage;
         }
 

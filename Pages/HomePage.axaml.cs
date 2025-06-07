@@ -7,7 +7,7 @@ namespace TYMCL.Pages
     {
         public HomePage()
         {
-            Logger.Log.Info("初始化主页");
+            Logger.Log.Info("Page", "加载主页");
             InitializeComponent();
         }
     }

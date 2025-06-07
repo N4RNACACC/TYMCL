@@ -11,8 +11,7 @@ namespace TYMCL
     {
         public override void Initialize()
         {
-            Logger.Initialize(); // 初始化日志系统
-            Logger.Log.Info("======== START ========");
+            Logger.Log.Info("启动器", "======== START ========");
 
             AvaloniaXamlLoader.Load(this);
 
@@ -27,7 +26,7 @@ namespace TYMCL
             {
                 desktop.MainWindow = new StartupWindow();
 
-                desktop.Exit += (sender, e) => { Logger.Log.Info("======== EXIT ========"); };
+                desktop.Exit += (sender, e) => { Logger.Log.Info("启动器", "======== EXIT ========"); };
             }
 
             base.OnFrameworkInitializationCompleted();
