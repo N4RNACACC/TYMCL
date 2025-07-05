@@ -33,7 +33,7 @@ namespace TYMCL.Services
             var fileAppender = new RollingFileAppender
             {
                 Name = "FileAppender",
-                File = Path.Combine(LogsDirectory, $"ADO-log-{DateTime.Now:yyyyMMddHHmmss}.log"),
+                File = Path.Combine(LogsDirectory, $"TYMCL-log-{DateTime.Now:yyyyMMddHHmmss}.log"),
                 AppendToFile = true,
                 Layout = patternLayout,
                 RollingStyle = RollingFileAppender.RollingMode.Once,

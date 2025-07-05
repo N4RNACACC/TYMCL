@@ -3,3 +3,4 @@ TYMCL/obj/*
 TYMCL.Desktop/bin/*
 TYMCL.Desktop/obj/*
 .vs/*
+.idea/*
